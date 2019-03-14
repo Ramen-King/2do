@@ -102,7 +102,7 @@ function clearTodos(event) {
     // Clear all todos from the list.
     todos.length = 0;
     // Update our html.
-    updateTodosOl()
+    updateTodosOl();
 }
 
 function removeCompleted(event) {
