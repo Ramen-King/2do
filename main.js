@@ -17,25 +17,25 @@ function init() {
     // Add event listener functions that get called whenever a user interacts
     // with the respective element.
 
-    document.querySelector('')
+    document.querySelector('#add-todo-button')
         .addEventListener('click', addTodo);
     
-    document.querySelector('')
+    document.querySelector('#remove-todo-button')
         .addEventListener('click', removeTodo);
 
-    document.querySelector('')
+    document.querySelector('#complete-todo-button')
         .addEventListener('click', completeTodo);
 
-    document.querySelector('')
+    document.querySelector('#clear-todos-button')
         .addEventListener('click', clearTodos);
 
-    document.querySelector('')
+    document.querySelector('#remove-completed-button')
         .addEventListener('click', removeCompleted);
 
-    document.querySelector('')
+    document.querySelector('#mark-uncomplete-button')
         .addEventListener('click', markUncomplete);
 
-    document.querySelector('')
+    document.querySelector('#clear-completed-button')
         .addEventListener('click', clearComplete);
 }
 
@@ -50,7 +50,7 @@ function init() {
 function addTodo(event) {
     // Make sure page doesn't reload on button press.
     event.preventDefault();
-
+    
     // Grab value of todo input box.
 
     // Put that value at the end of our list.
