@@ -67,11 +67,13 @@ function removeTodo(event) {
     event.preventDefault();
 
     // Grab value that's in user's removal index input box.
-
+    let itemNumber = document.querySelector('#todo-removal-index').value;
+    let index = itemNumber - 1;
+    console.log(todos)
     // Remove todo at that index.
-
+    todos.splice(index, 1);
     // Update our html.
-
+    updateTodosOl()
     // Reset all input fields.
 }
 
