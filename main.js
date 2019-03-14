@@ -52,12 +52,14 @@ function addTodo(event) {
     event.preventDefault();
     
     // Grab value of todo input box.
-
+    const newToDo = document.querySelector('#new-todo').value;
     // Put that value at the end of our list.
-
+    todos.push(newToDo);
+    console.log(todos);
     // Update our html.
-
+    updateTodosOl();
     // Reset all input fields.
+    resetAllInputs();
 }
 
 function removeTodo(event) {
