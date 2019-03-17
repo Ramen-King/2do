@@ -9,6 +9,7 @@
 const todos = [];
 // An array for our completed todos.
 const completed = [];
+const checkMarks = [];
 
 // Tell the browser to run init when the html is loaded.
 window.onload = init;
@@ -69,14 +70,13 @@ function removeTodo(event) {
     // Grab value that's in user's removal index input box.
     let itemNumber = document.querySelector('#todo-removal-index').value;
     let index = itemNumber - 1;
-    console.log(' before ', todos);
     // Remove todo at that index.
     if (itemNumber !== '' && itemNumber > 0){
         todos.splice(index, 1);
     }
     // Update our html.
     updateTodosOl()
-    console.log(' after ', todos)
+    
     // Reset all input fields.
     resetAllInputs();
 }
@@ -90,7 +90,9 @@ function completeTodo(event) {
     let index = itemNumber -1;
     // Move todo at that index to the completed list.
     completed.push(todos.splice(index, 1));
+    checkMarks.push('checked')
     // Update our html.
+    updateCheckedOl();
     updateTodosOl();
     updateCompletedOl();
     // Reset all input fields.
@@ -115,8 +117,10 @@ function removeCompleted(event) {
     let index = itemNumber -1;
     // Remove todo at that index.
     completed.splice(index, 1);
+    checkMarks.pop();
     // Update our html.
     updateCompletedOl()
+    updateCheckedOl();
     // Reset all input fields.
     resetAllInputs();
 }
@@ -130,7 +134,9 @@ function markUncomplete(event) {
     let index = itemNumber -1;
     // Move todo at that index to the completed list.
     todos.push(completed.splice(index, 1));
+    checkMarks.pop();
     // Update our html.
+    updateCheckedOl();
     updateTodosOl();
     updateCompletedOl();
     // Reset all input fields.
@@ -143,7 +149,9 @@ function clearComplete(event) {
 
     // Clear all todos from the list.
     completed.length = 0;
+    checkMarks.length = 0;
     // Update our html.
+    updateCheckedOl();
     updateCompletedOl();
 }
 
@@ -187,6 +195,15 @@ function updateCompletedOl() {
     // Re-populate it with everything from the completed array.
     _addItemsToOl(completed, ol);
 }
+function updateCheckedOl() {
+    // Grab the completed ol.
+    const ol = document.querySelector('#check');
+    // Clear it of children nodes.
+    _clearOl(ol);
+    // Re-populate it with everything from the completed array.
+    _addItemsToOl(checkMarks, ol);
+}
+
 
 // Clear all children of the given ol.
 // Used INTERNALLY by the ol-updating functions above.

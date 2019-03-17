@@ -1,3 +1,6 @@
 #lists {
     display: flex;
 }
+#check {
+    list-style: none;
+}
