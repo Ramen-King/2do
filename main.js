@@ -4,12 +4,12 @@
 # ========================================================
 */
 
-
 // An array for our todos.
 const todos = [];
 // An array for our completed todos.
 const completed = [];
 const checkMarks = [];
+const d = new Date();
 
 // Tell the browser to run init when the html is loaded.
 window.onload = init;
@@ -17,6 +17,7 @@ window.onload = init;
 function init() {
     // Add event listener functions that get called whenever a user interacts
     // with the respective element.
+    document.getElementById('demo').innerHTML = d;
 
     document.querySelector('#add-todo-button')
         .addEventListener('click', addTodo);
@@ -90,7 +91,7 @@ function completeTodo(event) {
     let index = itemNumber -1;
     // Move todo at that index to the completed list.
     completed.push(todos.splice(index, 1));
-    checkMarks.push('checked')
+    checkMarks.push('🤙')
     // Update our html.
     updateCheckedOl();
     updateTodosOl();
