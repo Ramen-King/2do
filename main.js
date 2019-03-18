@@ -57,7 +57,6 @@ function addTodo(event) {
     const newToDo = document.querySelector('#new-todo').value;
     // Put that value at the end of our list.
     todos.push(newToDo);
-    console.log(todos);
     // Update our html.
     updateTodosOl();
     // Reset all input fields.
